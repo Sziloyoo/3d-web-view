@@ -1,0 +1,13 @@
+[ESSENTIALS]
+
+- Scene
+- Camera
+- Renderer
+
+[BASICS]
+
+- OrbitControls
+- Lighting: direactional light, ambient light
+
+
+
