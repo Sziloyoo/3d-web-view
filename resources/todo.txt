@@ -1,13 +1,36 @@
-[ESSENTIALS]
+[Config file]
 
-- Scene
-- Camera
-- Renderer
+source:
+	-name: string
+	-type: string
+	-path: string
 
-[BASICS]
+background:
+	- transparent: bool
+	- color: vec3
 
-- OrbitControls
-- Lighting: direactional light, ambient light
+renderer:
+	- tonemapping: enum
+	- tonemappingExposure: float
+
+camera:
+	- position: vec3
+	- target: vec3
+	- fov: float [16-75]
+	- enableRoate: bool
+	- autoRotate: bool
+	- autoRotateSpeed: float [0.1 - 3.0]
+
+lights:
+	- ambientLightColor: vec3
+	- ambientLightIntensity: float
+	- directionalLightColor: vec3
+	- directionalLightIntensity: float
+
+model:
+	- autoPlayAnim: bool
+
+	
 
 
 

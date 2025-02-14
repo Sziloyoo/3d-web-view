@@ -41,10 +41,14 @@ export default class Loader extends EventEmitter {
                 source.path,
                 (file) => {
                     this.sourceLoaded(source, file)
+                },
+                undefined, // This called while loading is progressing (unused)
+                (error) => {
+                    console.error("Loader error: Can't load gltf file: ", error)
                 }
             )
         }
-        else console.error("Loader error: No gltf file provided in the source object.")
+        else console.error("Loader error: No gltf file type provided in the source object.")
     }
 
     sourceLoaded(source, file) {

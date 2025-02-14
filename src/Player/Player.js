@@ -27,7 +27,7 @@ export default class Player {
         }
 
         // Setup
-        this.debug = new Debug()
+        this.debug = new Debug(this.source)
         this.sizes = new Sizes(container)
         this.time = new Time()
         this.scene = new THREE.Scene()
