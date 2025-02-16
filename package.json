@@ -1,7 +1,7 @@
 {
-  "name": "threejs-journey-exercise",
+  "name": "webgl-player",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,8 +12,6 @@
     "vite-plugin-restart": "^0.4.1"
   },
   "dependencies": {
-    "gsap": "^3.12.5",
-    "lil-gui": "^0.20.0",
     "three": "^0.166.1",
     "tweakpane": "^4.0.5"
   }
