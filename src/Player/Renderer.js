@@ -12,7 +12,9 @@ export default class Renderer {
 
         this.params = {
             toneMapping: 'ACESFilmic',
-            toneMappingExposure: 1.75
+            toneMappingExposure: 1.75,
+            alpha: true,
+            background: '#222222'
         }
 
         this.toneMappingOptions = this.createToneMappingOptions()
@@ -29,11 +31,11 @@ export default class Renderer {
         this.instance = new THREE.WebGLRenderer({
             canvas: this.canvas,
             antialias: false,
-            alpha: true
+            alpha: this.params.alpha
         })
         this.instance.toneMapping = this.toneMappingOptions[this.params.toneMapping]
         this.instance.toneMappingExposure = this.params.toneMappingExposure
-        //this.instance.setClearColor('#211d20')
+        if(!this.params.alpha) this.instance.setClearColor(this.params.background)
         this.instance.setSize(this.sizes.width, this.sizes.height)
         this.instance.setPixelRatio(this.sizes.pixelRatio)
     }
@@ -64,6 +66,20 @@ export default class Renderer {
         this.debugFolder.addBinding(this.instance, 'toneMappingExposure', { label: 'Exposure', min: 0, max: 3, step: 0.05 })
         this.debugFolder.addBinding(this.params, 'toneMapping', { label: 'Tonemapping', options: this.toneMappingOptions }).on('change', (event) => {
             this.instance.toneMapping = event.value;
+        })
+        this.debugFolder.addBinding(this.params, 'alpha', { label: 'Transparent canvas' }).on('change', (event) => {
+            if (event.value) {
+                // Enable transparency
+                this.scene.background = null
+                this.instance.setClearAlpha(0)
+            } else {
+                // Disable transparency and set background color
+                this.instance.setClearColor(this.params.background)
+                this.instance.setClearAlpha(1)
+            }
+        })
+        this.debugFolder.addBinding(this.params, 'background', { label: 'Background' }).on('change', () => {
+            if(!this.params.alpha) this.instance.setClearColor(this.params.background)
         })
     }
 }

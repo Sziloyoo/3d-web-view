@@ -11,11 +11,6 @@ export default class Stage {
 
         this.lighing = new Lighting()
 
-        if (this.debug.active) {
-            this.debugFolder = this.debug.ui.addFolder({ title: "Background" })
-            this.createDebugSettings()
-        }
-
         // Wait for resources
         this.loader.on('ready', () => {
             this.model = new Model()
@@ -24,10 +19,5 @@ export default class Stage {
 
     update(){
         if(this.model) this.model.update()
-    }
-
-    // Debug
-    createDebugSettings(){
-        
     }
 }

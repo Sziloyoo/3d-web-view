@@ -5,13 +5,11 @@ source:
 	-type: string
 	-path: string
 
-background:
-	- transparent: bool
-	- color: vec3
-
 renderer:
 	- tonemapping: enum
 	- tonemappingExposure: float
+	- transparent: bool
+	- color: vec3
 
 camera:
 	- position: vec3
