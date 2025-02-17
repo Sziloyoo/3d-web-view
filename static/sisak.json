@@ -1,21 +1,21 @@
 {
     "source": {
-        "name": "sziv",
+        "name": "sisak",
         "type": "gltfModel",
-        "path": "./models/sziv.glb"
+        "path": "https://test-files.vercel.app/sisak.glb"
     },
     "camera": {
-        "fov": 35,
-        "position": { "x": 0, "y": 20, "z": 32 },
-        "target": { "x": 0, "y": 9.5, "z": 0 },
+        "fov": 45,
+        "position": { "x": 0, "y": 1, "z": 3 },
+        "target": { "x": 0, "y": 0, "z": 0 },
         "canZoom": false,
         "canRotate": true,
         "autoRotate": true,
         "autoRotateSpeed": 2.0
     },
     "renderer": {
-        "toneMapping": "ACESFilmic",
-        "toneMappingExposure": 1.75,
+        "toneMapping": "AgX",
+        "toneMappingExposure": 3.0,
         "alpha": true,
         "background": "#222222"
     },

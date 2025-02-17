@@ -1,6 +1,6 @@
 import Player from "./Player/Player.js"
 
-const config = await loadConfiguration("./sziv.json")
+const config = await loadConfiguration("https://test-files.vercel.app/sisak.json")
 const container = document.querySelector('.canvas-container')
 const canvas = document.querySelector('canvas.webgl')
 
