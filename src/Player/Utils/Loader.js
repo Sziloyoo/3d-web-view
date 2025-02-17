@@ -18,9 +18,9 @@ export default class Loader extends EventEmitter {
         this.items = {}
 
         this.setLoaders()
-        
-        if(source) this.startLoading(source)
-        else console.error("Loader error: No source provided.")
+
+        if (source) this.startLoading(source)
+        else console.warn("Loader: No source provided!")
     }
 
     setLoaders() {

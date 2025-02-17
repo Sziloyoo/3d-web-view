@@ -3,22 +3,14 @@ import Player from './Player.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 export default class Camera {
-    constructor() {
+    constructor(params) {
         this.player = new Player()
         this.sizes = this.player.sizes
         this.scene = this.player.scene
         this.canvas = this.player.canvas
         this.debug = this.player.debug
 
-        this.params = {
-            fov: 35,
-            position: { x: 0, y: 20, z: 32 },
-            target: { x: 0, y: 9.5, z: 0 },
-            canZoom: false,
-            canRotate: true,
-            autoRotate: true,
-            autoRotateSpeed: 2.0
-        }
+        this.params = params
 
         this.setInstance()
         this.setControls()
@@ -52,6 +44,33 @@ export default class Camera {
 
     update() {
         this.controls.update()
+    }
+
+    setParameters(params) {
+        // Set camera parameters
+        this.instance.fov = params.fov
+        this.instance.updateProjectionMatrix()
+        this.instance.position.set(params.position.x, params.position.y, params.position.z)
+
+        // Set OrbitControls parameters
+        this.controls.target.set(params.target.x, params.target.y, params.target.z)
+        this.controls.enableRotate = params.canRotate
+        this.controls.autoRotate = params.autoRotate
+        this.controls.autoRotateSpeed = params.autoRotateSpeed
+        this.controls.enableZoom = params.canZoom
+
+        // Set the params object
+        this.params = { ...params }
+
+        // Update debug
+        if (this.debug.active) {
+            // Remove current debug folder
+            if (this.debugFolder) this.debugFolder.dispose()
+
+            // Create new folder and bindings
+            this.debugFolder = this.debug.ui.addFolder({ index: 1, title: "Camera" })
+            this.createDebugSettings()
+        }
     }
 
     createDebugSettings() {
