@@ -78,10 +78,10 @@ export default class Camera {
             this.instance.fov = this.params.fov
             this.instance.updateProjectionMatrix()
         })
-        this.debugFolder.addBinding(this.params, 'position', { label: 'Position', step: 1 }).on('change', () => {
+        this.debugFolder.addBinding(this.params, 'position', { label: 'Position', step: 0.1 }).on('change', () => {
             this.instance.position.set(this.params.position.x, this.params.position.y, this.params.position.z)
         })
-        this.debugFolder.addBinding(this.params, 'target', { label: 'Target', step: 1 }).on('change', () => {
+        this.debugFolder.addBinding(this.params, 'target', { label: 'Target', step: 0.1 }).on('change', () => {
             this.controls.target.set(this.params.target.x, this.params.target.y, this.params.target.z)
         })
         this.debugFolder.addBinding(this.params, 'canZoom', { label: 'Can zoom' }).on('change', () => {

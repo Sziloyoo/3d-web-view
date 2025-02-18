@@ -19,7 +19,7 @@ export default class Player {
         // Canvas
         this.canvas = canvas
 
-        // Testing loading
+        // Test config
         this.source = config.source
 
         // Setup

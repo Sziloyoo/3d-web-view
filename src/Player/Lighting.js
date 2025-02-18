@@ -59,6 +59,6 @@ export default class Lighting {
         this.debugFolder.addBinding(this.params, 'ambientLightColor', { label: 'Ambient color' }).on('change', () => {
             this.ambientLight.color.set(this.params.ambientLightColor)
         })
-        this.debugFolder.addBinding(this.ambientLight, 'intensity', { label: 'Ambient intensity', min: 0, max: 1, step: 0.05 })
+        this.debugFolder.addBinding(this.ambientLight, 'intensity', { label: 'Ambient intensity', min: 0, max: 1.5, step: 0.05 })
     }
 }
